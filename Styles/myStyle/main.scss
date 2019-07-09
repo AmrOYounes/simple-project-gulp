@@ -1,0 +1,170 @@
+
+ $bgimagepath:'../images/pexels-photo-988872.jpeg';
+ $displayinline:inline-block;
+ $displayblock:block;
+ $sortbuttonswidth:70px;
+ $sortbuttonshight:40px;
+body{
+
+    box-sizing: border-box;
+     margin-top: 15px;
+    background-image: url($bgimagepath);
+      
+         
+    
+    }
+    #sort-label{
+        position: fixed;
+        left: 10px;
+    }
+    .contain{
+        display: flex;
+        margin-right: auto;
+    
+    
+    }
+    #sort-cards{
+         position: fixed;
+         left: 65px;
+         
+        width: $sortbuttonswidth;
+        height: $sortbuttonshight;
+         
+    }
+    #sort-date{
+        position: fixed;
+        left: 150px;
+        width: $sortbuttonswidth;
+        height: $sortbuttonshight;
+    }
+    
+    #infinte-list{
+        margin: auto;
+        width: 800px;
+        height: 730px;
+     
+    }
+    li{
+        list-style-type: none;
+        padding: 10px;
+        
+    }
+    #preloader {
+        
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+        background-color: #fff;
+    }
+    
+    #status {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -35px;
+        margin-left: -35px;
+        width: 70px;
+        height: 70px;
+        background-image:url("../images/preloader.gif");
+        background-repeat: no-repeat;
+        
+       
+        
+        
+    }
+    
+    
+    
+    .card{
+        margin: auto auto;  
+        border: 1px solid black;
+        padding: 6px;
+        width: 280px;
+        height: auto;
+        text-align: center;
+        background-color: aliceblue;
+        
+       
+    }
+    .image{
+        
+        width: 120px;
+        height: 120px;
+        
+        
+    }
+    .person-info{
+        display:$displayblock;
+    }
+       
+        
+        
+    
+    .social-media{
+        display: $displayblock;
+        width: 300px;
+        height: 100px ;
+    
+    }
+    .social-media button{
+        width: 40px;
+        height: 40px ;
+    
+    }
+    
+         
+    
+    .person-photo{
+        display:$displayblock;
+        margin: auto auto;
+        width:120px;
+        height: 120px;
+        
+        
+        
+    }
+    
+        @media  (min-width: 576px) {
+            .person-photo{
+            display: $displayinline;  
+            width:120px;
+            height: 120px;
+            
+            }
+            .image{
+                width: 120px;
+                height: 120px;
+            }
+            .person-info{
+                display: $displayinline;
+                width: 30%;
+              }
+              .card{
+                margin-left: 10px;			  
+                width: 650px;
+                background-color: aliceblue;
+             
+            }
+             
+            .social-media{
+               
+                display:$displayinline;
+                margin-left: 30px;
+                width: 40%;
+                   button{
+                    margin-top: 50px;
+                    width: 40px;
+                    height: 40px ;
+                    
+                    
+                }
+                 
+              }
+              
+    
+            }
+    
+    
