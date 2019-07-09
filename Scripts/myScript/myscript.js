@@ -2,13 +2,13 @@ let isscroll=true;
 let itemss = [];
 let alldata=[];
 let t = 0, i = 0, j = 0;
-$(window).on('load', function () {
+$(window).on('load',  ()=> {
     //preloader 
     $('#status').fadeOut();
     $('#preloader').fadeOut(300);
 });
 
-$( document ).ready(function() {
+$( document ).ready(()=> {
 
     let cards = document.querySelector('#infinte-list');
     $("#iframeloading").show();
@@ -35,7 +35,7 @@ $( document ).ready(function() {
             }
              
         });
-        $('#sort-cards').on('click', function () {
+        $('#sort-cards').on('click',  ()=> {
             let list = document.getElementById('infinte-list');
 
             //remove all cards
@@ -54,7 +54,7 @@ $( document ).ready(function() {
         
         });
         
-        $('#sort-date').on('click', function () {
+        $('#sort-date').on('click',  ()=> {
             let list = document.getElementById('infinte-list');
             while (list.firstChild) {
                 list.removeChild(list.firstChild);
@@ -106,7 +106,7 @@ function sortt(){
     
     let item = document.querySelectorAll('#infinte-list li button');
     for (let k = 0; k < item.length; k++) {
-        item[k].addEventListener('click', function (event) {
+        item[k].addEventListener('click',  (event)=> {
             let idd = event.target.id;
             let hint = "" + this.id;
             let index = parseInt(hint.slice(-1));
@@ -194,7 +194,7 @@ function sortt(){
 
 
 function addfirst(){
-    $.getJSON("https://randomuser.me/api/?results=10&nat=us",function(data){
+    $.getJSON("https://randomuser.me/api/?results=10&nat=us",(data)=>{
         itemss=data.results;
         for( i;i<itemss.length;i++){
             let firstName = itemss[i].name.first;
@@ -223,7 +223,7 @@ function addfirst(){
         }
         let item = document.querySelectorAll('#infinte-list li button');
         for (let k = 0; k < item.length; k++) {
-            item[k].addEventListener('click', function (event) {
+            item[k].addEventListener('click',  (event)=> {
                 let idd = event.target.id;
                 let hint = "" + this.id;
                 let index = parseInt(hint.slice(-1));
@@ -315,7 +315,7 @@ function addfirst(){
 
 function getDta(){
     
-    $.getJSON("https://randomuser.me/api/?results=5&nat=us",function(data){
+    $.getJSON("https://randomuser.me/api/?results=5&nat=us",(data)=>{
        let arr=data.results;
        console.log(arr);
         
@@ -348,7 +348,7 @@ function getDta(){
         }
         let item = document.querySelectorAll('#infinte-list li button');
     for (let k = 50+t; k < item.length; k++) {
-        item[k].addEventListener('click', function (event) {
+        item[k].addEventListener('click',  (event)=> {
             let idd = event.target.id;
             let hint = "" + this.id;
             let index = parseInt(hint.slice(-1));
