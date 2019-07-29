@@ -1,7 +1,7 @@
-let isscroll=true;
-let itemss = [];
-let alldata=[];
-let t = 0, i = 0, j = 0;
+var isscroll=true;
+var itemss = [];
+var alldata=[];
+var t = 0, i = 0, j = 0;
 $(window).on('load',  ()=> {
     //preloader 
     $('#status').fadeOut();
@@ -10,17 +10,17 @@ $(window).on('load',  ()=> {
 
 $( document ).ready(()=> {
 
-    let cards = document.querySelector('#infinte-list');
+    var cards = document.querySelector('#infinte-list');
     $("#iframeloading").show();
         $("#iframeloading").fadeOut(500);
         addfirst();
         
         $(window).scroll( function () {
-            let scrollTop = $(document).scrollTop();
-            let windowHeight = $(window).height();
-            let bodyHeight = $(document).height() - windowHeight;
-            let scrollPercentage = (scrollTop / bodyHeight);
-            if (scrollPercentage>=0.75&&isscroll) 
+            var scrollTop = $(document).scrollTop();
+            var windowHeight = $(window).height();
+            var bodyHeight = $(document).height() - windowHeight;
+            var scrollPercentage = (scrollTop / bodyHeight);
+            if (scrollPercentage>=0.75&& isscroll) 
             {
                 isscroll=false;
                 // when detect scroll add 5 card 
@@ -36,7 +36,7 @@ $( document ).ready(()=> {
              
         });
         $('#sort-cards').on('click',  ()=> {
-            let list = document.getElementById('infinte-list');
+            var list = document.getElementById('infinte-list');
 
             //remove all cards
             while (list.firstChild) {
@@ -55,7 +55,7 @@ $( document ).ready(()=> {
         });
         
         $('#sort-date').on('click',  ()=> {
-            let list = document.getElementById('infinte-list');
+            var list = document.getElementById('infinte-list');
             while (list.firstChild) {
                 list.removeChild(list.firstChild);
             }
@@ -77,10 +77,10 @@ function sortt(){
     // itemss=alldata;
    
     for( i;i<alldata.length;i++){
-        let firstName = alldata[i].name.first;
-        let lastName = alldata[i].name.last;
-        let fullname = firstName + " " + lastName;
-        let pic = alldata[i].picture.large;
+        var firstName = alldata[i].name.first;
+        var lastName = alldata[i].name.last;
+        var fullname = firstName + " " + lastName;
+        var pic = alldata[i].picture.large;
       
         
         
@@ -104,25 +104,25 @@ function sortt(){
 
     }
     
-    let item = document.querySelectorAll('#infinte-list li button');
-    for (let k = 0; k < item.length; k++) {
+    var item = document.querySelectorAll('#infinte-list li button');
+    for (var k = 0; k < item.length; k++) {
         item[k].addEventListener('click',  (event)=> {
-            let idd = event.target.id;
-            let hint = "" + this.id;
-            let index = parseInt(hint.slice(-1));
-            let newStr = hint.substring(0, hint.length - 1);
+            var idd = event.target.id;
+            var hint = "" + this.id;
+            var index = parseInt(hint.slice(-1));
+            var newStr = hint.substring(0, hint.length - 1);
             switch (newStr) {
-                case "name": let editcard = this.parentNode.parentNode;
-                    let x = editcard.querySelector('.person-info');
-                    let fname, lname, fulname, tittle;
+                case "name": var editcard = this.parentNode.parentNode;
+                    var x = editcard.querySelector('.person-info');
+                    var fname, lname, fulname, tittle;
 
                     fname = itemss[index].name.first;
                     lname = itemss[index].name.last;
                     fulname = fname + " " + lname;
                     tittle = "My Name";
 
-                    let gg = x.querySelector('#key');
-                    let textval = x.querySelector('#value');
+                    var gg = x.querySelector('#key');
+                    var textval = x.querySelector('#value');
                     gg.innerHTML = tittle;
                     textval.innerHTML = fulname;
         
@@ -130,7 +130,7 @@ function sortt(){
                 case "letter":
                      editcard = this.parentNode.parentNode;
                      x = editcard.querySelector('.person-info');
-                    let email;
+                    var email;
                     email = itemss[index].email;
                     tittle = "My Email";
 
@@ -144,7 +144,7 @@ function sortt(){
                 case "location":
                      editcard = this.parentNode.parentNode;
                      x = editcard.querySelector('.person-info');
-                    let city;
+                    var city;
                     city = itemss[index].location.city;
                     tittle = "City Location";
 
@@ -157,7 +157,7 @@ function sortt(){
                 case "date":
                      editcard = this.parentNode.parentNode;
                      x = editcard.querySelector('.person-info');
-                    let datee;
+                    var datee;
                     datee = itemss[index].dob.date;
                     tittle = "Date";
 
@@ -171,7 +171,7 @@ function sortt(){
                 case "pass":
                      editcard = this.parentNode.parentNode;
                      x = editcard.querySelector('.person-info');
-                    let pass;
+                    var pass;
                     pass = itemss[index].login.password;
                     tittle = "Password";
 
@@ -197,10 +197,10 @@ function addfirst(){
     $.getJSON("https://randomuser.me/api/?results=10&nat=us",(data)=>{
         itemss=data.results;
         for( i;i<itemss.length;i++){
-            let firstName = itemss[i].name.first;
-            let lastName = itemss[i].name.last;
-            let fullname = firstName + " " + lastName;
-            let pic = itemss[i].picture.large;
+            var firstName = itemss[i].name.first;
+            var lastName = itemss[i].name.last;
+            var fullname = firstName + " " + lastName;
+            var pic = itemss[i].picture.large;
             alldata.push(itemss[i]);
             $('#infinte-list').append('<li><div class="card">' +
             '<div class="person-photo">' +
@@ -221,25 +221,27 @@ function addfirst(){
             '</div></li>');
 
         }
-        let item = document.querySelectorAll('#infinte-list li button');
-        for (let k = 0; k < item.length; k++) {
+        var item = document.querySelectorAll('#infinte-list li button');
+        for (var k = 0; k < item.length; k++) {
             item[k].addEventListener('click',  (event)=> {
-                let idd = event.target.id;
-                let hint = "" + this.id;
-                let index = parseInt(hint.slice(-1));
-                let newStr = hint.substring(0, hint.length - 1);
+                var idd = event.target.id;
+                var hint = "" + this.id;
+                var index = parseInt(hint.slice(-1));
+                var newStr = hint.substring(0, hint.length - 1);
+                console.log(hint);
+                console.log(newStr);
                 switch (newStr) {
-                    case "name": let editcard = this.parentNode.parentNode;
-                        let x = editcard.querySelector('.person-info');
-                        let fname, lname, fulname, tittle;
+                    case "name": var editcard = this.parentNode.parentNode;
+                        var x = editcard.querySelector('.person-info');
+                        var fname, lname, fulname, tittle;
     
                         fname = itemss[index].name.first;
                         lname = itemss[index].name.last;
                         fulname = fname + " " + lname;
                         tittle = "My Name";
     
-                        let gg = x.querySelector('#key');
-                        let textval = x.querySelector('#value');
+                        var gg = x.querySelector('#key');
+                        var textval = x.querySelector('#value');
                         gg.innerHTML = tittle;
                         textval.innerHTML = fulname;
             
@@ -247,7 +249,7 @@ function addfirst(){
                     case "letter":
                          editcard = this.parentNode.parentNode;
                          x = editcard.querySelector('.person-info');
-                        let email;
+                        var email;
                         email = itemss[index].email;
                         tittle = "My Email";
     
@@ -261,7 +263,7 @@ function addfirst(){
                     case "location":
                          editcard = this.parentNode.parentNode;
                          x = editcard.querySelector('.person-info');
-                        let city;
+                        var city;
                         city = itemss[index].location.city;
                         tittle = "City Location";
     
@@ -274,7 +276,7 @@ function addfirst(){
                     case "date":
                          editcard = this.parentNode.parentNode;
                          x = editcard.querySelector('.person-info');
-                        let datee;
+                        var datee;
                         datee = itemss[index].dob.date;
                         tittle = "Date";
     
@@ -316,14 +318,14 @@ function addfirst(){
 function getDta(){
     
     $.getJSON("https://randomuser.me/api/?results=5&nat=us",(data)=>{
-       let arr=data.results;
+       var arr=data.results;
        console.log(arr);
         
-        for( let m=0;m<5;m++){
-            let firstName = arr[m].name.first;
-            let lastName = arr[m].name.last;
-            let fullname = firstName + " " + lastName;
-            let pic = arr[m].picture.large;
+        for( var m=0;m<5;m++){
+            var firstName = arr[m].name.first;
+            var lastName = arr[m].name.last;
+            var fullname = firstName + " " + lastName;
+            var pic = arr[m].picture.large;
             alldata.push(arr[m]);
             console.log(fullname);
             $('#infinte-list').append('<li><div class="card">' +
@@ -346,79 +348,81 @@ function getDta(){
             i++;
 
         }
-        let item = document.querySelectorAll('#infinte-list li button');
-    for (let k = 50+t; k < item.length; k++) {
+        var item = document.querySelectorAll('#infinte-list li button');
+    for (var k = 50+t; k < item.length; k++) {
         item[k].addEventListener('click',  (event)=> {
-            let idd = event.target.id;
-            let hint = "" + this.id;
-            let index = parseInt(hint.slice(-1));
-            let newStr = hint.substring(0, hint.length - 2);
+            var idd = event.target.id;
+            var hint = "" + this.id;
+            var index = parseInt(hint.slice(-1));
+            var newStr = hint.substring(0, hint.length - 2);
+            console.log(hint);
+            console.log(newStr);
             switch (newStr) {
-                case "name": let editcard = this.parentNode.parentNode;
-                    let x = editcard.querySelector('.person-info');
-                    let fname, lname, fulname, tittle;
+                case "name": var editcard = this.parentNode.parentNode;
+                    var x = editcard.querySelector('.person-info');
+                    var fname, lname, fulname, tittle;
 
                     fname = itemss[index].name.first;
                     lname = itemss[index].name.last;
                     fulname = fname + " " + lname;
                     tittle = "My Name";
 
-                    let gg = x.querySelector('#key');
-                    let textval = x.querySelector('#value');
+                    var gg = x.querySelector('#key');
+                    var textval = x.querySelector('#value');
                     gg.innerHTML = tittle;
                     textval.innerHTML = fulname;
         
                     break;
                 case "letter":
-                    let editcard = this.parentNode.parentNode;
-                    let x = editcard.querySelector('.person-info');
-                    let email, tittle;
+                    var editcard = this.parentNode.parentNode;
+                    var x = editcard.querySelector('.person-info');
+                    var email, tittle;
                     email = itemss[index].email;
                     tittle = "My Email";
 
-                    let gg = x.querySelector('#key');
-                    let textval = x.querySelector('#value');
+                    var gg = x.querySelector('#key');
+                    var textval = x.querySelector('#value');
                     gg.innerHTML = tittle;
                     textval.innerHTML = email;
            
                     break;
 
                 case "location":
-                    let editcard = this.parentNode.parentNode;
-                    let x = editcard.querySelector('.person-info');
-                    let city, tittle;
+                    var editcard = this.parentNode.parentNode;
+                    var x = editcard.querySelector('.person-info');
+                    var city, tittle;
                     city = itemss[index].location.city;
                     tittle = "City Location";
 
-                    let gg = x.querySelector('#key');
-                    let textval = x.querySelector('#value');
+                    var gg = x.querySelector('#key');
+                    var textval = x.querySelector('#value');
                     gg.innerHTML = tittle;
                     textval.innerHTML = city;
                    
                     break;
                 case "date":
-                    let editcard = this.parentNode.parentNode;
-                    let x = editcard.querySelector('.person-info');
-                    let datee, tittle;
+                    var editcard = this.parentNode.parentNode;
+                    var x = editcard.querySelector('.person-info');
+                    var datee, tittle;
                     datee = itemss[index].dob.date;
                     tittle = "Date";
 
-                    let gg = x.querySelector('#key');
-                    let textval = x.querySelector('#value');
+                    var gg = x.querySelector('#key');
+                    var textval = x.querySelector('#value');
                     gg.innerHTML = tittle;
                     textval.innerHTML = datee;
                   
                     break;
 
                 case "pass":
-                    let editcard = this.parentNode.parentNode;
-                    let x = editcard.querySelector('.person-info');
-                    let pass, tittle;
+                    var editcard = this.parentNode.parentNode;
+                    var x = editcard.querySelector('.person-info');
+                    var pass, tittle;
                     pass = itemss[index].login.password;
                     tittle = "Password";
 
-                    let gg = x.querySelector('#key');
-                    let textval = x.querySelector('#value');
+                    var gg = x.querySelector('#key');
+                    var textval = x.querySelector('#value');
                     gg.innerHTML = tittle;
                     textval.innerHTML = pass;
                  

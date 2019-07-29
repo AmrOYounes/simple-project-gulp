@@ -1,1 +1,227 @@
-var isscroll=!0,itemss=[],alldata=[],t=0,i=0,j=0;function sortt(){for(;i<alldata.length;i++){var e=alldata[i].name.first+" "+alldata[i].name.last,t=alldata[i].picture.large;$("#infinte-list").append('<li><div class="card"><div class="person-photo"><img src="'+t+'"class="image" ></div><div class="person-info"><p id="key">MY Name</p><P id="value">'+e+'</P><br></div><div class="social-media"><button class="social-button" id="name'+i+'"><i class="fas fa-user-circle fa-2x"></i></i></button><button class="social-button" id="letter'+i+'"><i class="fas fa-envelope fa-2x"></i></button><button class="social-button" id="location'+i+'"><i class="fas fa-map-marker-alt fa-2x"></i></button><button class="social-button" id="date'+i+'"><i class="far fa-calendar-alt fa-2x"></i></button><button class="social-button" id="pass'+i+'"><i class="fas fa-lock fa-2x"></i></button></div></div></li>')}for(var a=document.querySelectorAll("#infinte-list li button"),r=0;r<a.length;r++)a[r].addEventListener("click",function(e){e.target.id;var t=""+this.id,a=parseInt(t.slice(-1));switch(t.substring(0,t.length-1)){case"name":var i,r=this.parentNode.parentNode.querySelector(".person-info");i=itemss[a].name.first+" "+itemss[a].name.last,d="My Name";var s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=i;break;case"letter":var o;r=this.parentNode.parentNode.querySelector(".person-info");o=itemss[a].email,d="My Email";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=o;break;case"location":var l;r=this.parentNode.parentNode.querySelector(".person-info");l=itemss[a].location.city,d="City Location";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=l;break;case"date":var c;r=this.parentNode.parentNode.querySelector(".person-info");c=itemss[a].dob.date,d="Date";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=c;break;case"pass":var u,d;r=this.parentNode.parentNode.querySelector(".person-info");u=itemss[a].login.password,d="Password";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=u}})}function addfirst(){$.getJSON("https://randomuser.me/api/?results=10&nat=us",function(e){for(itemss=e.results;i<itemss.length;i++){var t=itemss[i].name.first+" "+itemss[i].name.last,a=itemss[i].picture.large;alldata.push(itemss[i]),$("#infinte-list").append('<li><div class="card"><div class="person-photo"><img src="'+a+'"class="image" ></div><div class="person-info"><p id="key">MY Name</p><P id="value">'+t+'</P><br></div><div class="social-media"><button class="social-button" id="name'+i+'"><i class="fas fa-user-circle fa-2x"></i></i></button><button class="social-button" id="letter'+i+'"><i class="fas fa-envelope fa-2x"></i></button><button class="social-button" id="location'+i+'"><i class="fas fa-map-marker-alt fa-2x"></i></button><button class="social-button" id="date'+i+'"><i class="far fa-calendar-alt fa-2x"></i></button><button class="social-button" id="pass'+i+'"><i class="fas fa-lock fa-2x"></i></button></div></div></li>')}for(var r=document.querySelectorAll("#infinte-list li button"),s=0;s<r.length;s++)r[s].addEventListener("click",function(e){e.target.id;var t=""+this.id,a=parseInt(t.slice(-1));switch(t.substring(0,t.length-1)){case"name":var i,r=this.parentNode.parentNode.querySelector(".person-info");i=itemss[a].name.first+" "+itemss[a].name.last,d="My Name";var s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=i;break;case"letter":var o;r=this.parentNode.parentNode.querySelector(".person-info");o=itemss[a].email,d="My Email";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=o;break;case"location":var l;r=this.parentNode.parentNode.querySelector(".person-info");l=itemss[a].location.city,d="City Location";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=l;break;case"date":var c;r=this.parentNode.parentNode.querySelector(".person-info");c=itemss[a].dob.date,d="Date";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=c;break;case"pass":var u,d;r=this.parentNode.parentNode.querySelector(".person-info");u=itemss[a].login.password,d="Password";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=u}})})}function getDta(){$.getJSON("https://randomuser.me/api/?results=5&nat=us",function(e){var a=e.results;console.log(a);for(var r=0;r<5;r++){var s=a[r].name.first+" "+a[r].name.last,n=a[r].picture.large;alldata.push(a[r]),console.log(s),$("#infinte-list").append('<li><div class="card"><div class="person-photo"><img src="'+n+'"class="image" ></div><div class="person-info"><p id="key">MY Name</p><P id="value">'+s+'</P><br></div><div class="social-media"><button class="social-button" id="name'+i+'"><i class="fas fa-user-circle fa-2x"></i></i></button><button class="social-button" id="letter'+i+'"><i class="fas fa-envelope fa-2x"></i></button><button class="social-button" id="location'+i+'"><i class="fas fa-map-marker-alt fa-2x"></i></button><button class="social-button" id="date'+i+'"><i class="far fa-calendar-alt fa-2x"></i></button><button class="social-button" id="pass'+i+'"><i class="fas fa-lock fa-2x"></i></button></div></div></li>'),i++}for(var o=document.querySelectorAll("#infinte-list li button"),l=50+t;l<o.length;l++)o[l].addEventListener("click",function(e){e.target.id;var t=""+this.id,a=parseInt(t.slice(-1));switch(t.substring(0,t.length-2)){case"name":var i,r=this.parentNode.parentNode.querySelector(".person-info");i=itemss[a].name.first+" "+itemss[a].name.last,d="My Name";var s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=i;break;case"letter":var o;r=this.parentNode.parentNode.querySelector(".person-info");o=itemss[a].email,d="My Email";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=o;break;case"location":var l;r=this.parentNode.parentNode.querySelector(".person-info");l=itemss[a].location.city,d="City Location";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=l;break;case"date":var c;r=this.parentNode.parentNode.querySelector(".person-info");c=itemss[a].dob.date,d="Date";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=c;break;case"pass":var u,d;r=this.parentNode.parentNode.querySelector(".person-info");u=itemss[a].login.password,d="Password";s=r.querySelector("#key"),n=r.querySelector("#value");s.innerHTML=d,n.innerHTML=u}});i+=5,t+=25})}function compareStrings(e,t){return(e=e.toLowerCase())<(t=t.toLowerCase())?-1:t<e?1:0}function compareDate(e,t){return(e=e.toLowerCase())<(t=t.toLowerCase())?1:t<e?-1:0}$(window).on("load",function(){$("#status").fadeOut(),$("#preloader").fadeOut(300)}),$(document).ready(function(){document.querySelector("#infinte-list");$("#iframeloading").show(),$("#iframeloading").fadeOut(300),addfirst(),$(window).scroll(function(){var e=$(document).scrollTop(),t=$(window).height();.75<=e/($(document).height()-t)&&isscroll&&(isscroll=!1,getDta(),setTimeout(function(){isscroll=!0},350))}),$("#sort-cards").on("click",function(){for(var e=document.getElementById("infinte-list");e.firstChild;)e.removeChild(e.firstChild);alldata.sort(function(e,t){return compareStrings(e.name.first,t.name.first)}),t=j=i=0,sortt()}),$("#sort-date").on("click",function(){for(var e=document.getElementById("infinte-list");e.firstChild;)e.removeChild(e.firstChild);alldata.sort(function(e,t){return compareDate(e.name.first,t.name.first)}),t=j=i=0,sortt()})});
+var isscroll=true;
+var alldata=[];
+var uu=false;
+var firstAddition=true;
+var t = 0, i = 0, j = 0;
+var k=0;
+$(window).on('load', function () {
+    $('#status').fadeOut();
+    $('#preloader').fadeOut(300);
+});
+$( document ).ready(function() {
+    var cards = document.querySelector('#infinte-list');
+    $("#iframeloading").show();
+        $("#iframeloading").fadeOut(500);
+        addfirst(10,uu);
+        $(window).scroll( function () {
+            var scrollTop = $(document).scrollTop();
+            var windowHeight = $(window).height();
+            var bodyHeight = $(document).height() - windowHeight;
+            var scrollPercentage = (scrollTop / bodyHeight);
+            if (scrollPercentage>=0.75&&isscroll) 
+            {
+                isscroll=false;
+                
+                 addfirst(5,uu);
+                setTimeout(function() {
+                    isscroll=true;
+                    
+                }, 350);
+
+            }
+             
+        });
+        $('#sort-cards').on('click', function () {
+            var list = document.getElementById('infinte-list');
+
+            //remove all cards
+            while (list.firstChild) {
+                list.removeChild(list.firstChild);
+            }
+        
+            alldata.sort(function (a, b) {
+         return compareStrings(a.name.first, b.name.first);
+            });
+            i = 0;
+            j = 0;
+            t = 0;
+            uu=true;
+            isscroll=false;
+            addfirst(alldata.length,uu);
+        
+        });
+        
+        $('#sort-date').on('click', function () {
+            var list = document.getElementById('infinte-list');
+            while (list.firstChild) {
+                list.removeChild(list.firstChild);
+            }
+            alldata.sort(function (a, b) {
+             return compareDate(a.name.first, b.name.first);
+            });
+            i = 0;
+            j = 0;
+            t = 0;
+            uu=true;
+            isscroll=false;
+            addfirst(alldata.length,uu);
+        });
+        
+        
+});
+
+
+
+
+function addfirst(numm,uu){
+    $.getJSON("https://randomuser.me/api/?results="+numm+"&nat=us",function(data){
+        // itemss=data.results;
+        if(!uu){ 
+        for( i;i<data.results.length;i++){
+            alldata.push(data.results[i]);
+            var firstName = data.results[i].name.first;
+            var lastName = data.results[i].name.last;
+            var fullname = firstName + " " + lastName;
+            var pic = data.results[i].picture.large;
+           
+            $('#infinte-list').append('<li><div class="card">' +
+            '<div class="person-photo">' +
+            '<img src="' + pic + '"' + 'class="image" >' +
+            '</div>' +
+            '<div class="person-info">' +
+            '<p id="key">MY Name</p>' +
+            '<P id="value">' + fullname + '</P>' +
+            '<br>' +
+            '</div>' +
+            '<div class="social-media">' +
+            '<button class="social-button" id="name' + j + '"' + '><i class="fas fa-user-circle fa-2x"></i></i></button>' +
+            '<button class="social-button" id="varter' + j + '"' + '><i class="fas fa-envelope fa-2x"></i></button>' +
+            '<button class="social-button" id="location' + j + '"' + '><i class="fas fa-map-marker-alt fa-2x"></i></button>' +
+            '<button class="social-button" id="date' + j + '"' + '><i class="far fa-calendar-alt fa-2x"></i></button>' +
+            '<button class="social-button" id="pass' + j + '"' + '><i class="fas fa-lock fa-2x"></i></button>' +
+            '</div>' +
+            '</div></li>');
+            j++;
+
+        }
+    }
+        else{
+            i=0;
+            for( i;i<alldata.length;i++){
+                var firstName = alldata[i].name.first;
+                var lastName =  alldata[i].name.last;
+                var fullname = firstName + " " + lastName;
+                var pic = alldata[i].picture.large;
+               
+                $('#infinte-list').append('<li><div class="card">' +
+                '<div class="person-photo">' +
+                '<img src="' + pic + '"' + 'class="image" >' +
+                '</div>' +
+                '<div class="person-info">' +
+                '<p id="key">MY Name</p>' +
+                '<P id="value">' + fullname + '</P>' +
+                '<br>' +
+                '</div>' +
+                '<div class="social-media">' +
+                '<button class="social-button" id="name' + j + '"' + '><i class="fas fa-user-circle fa-2x"></i></i></button>' +
+                '<button class="social-button" id="varter' + j + '"' + '><i class="fas fa-envelope fa-2x"></i></button>' +
+                '<button class="social-button" id="location' + j + '"' + '><i class="fas fa-map-marker-alt fa-2x"></i></button>' +
+                '<button class="social-button" id="date' + j + '"' + '><i class="far fa-calendar-alt fa-2x"></i></button>' +
+                '<button class="social-button" id="pass' + j + '"' + '><i class="fas fa-lock fa-2x"></i></button>' +
+                '</div>' +
+                '</div></li>');
+                j++;
+    
+            }
+
+        }
+    
+    i=0;
+        var item = document.querySelectorAll('#infinte-list li button');
+        
+        for ( k ; k < item.length; k++) {
+            item[k].addEventListener('click', function (event) {
+                var idd,hint,index,newStr;
+                idd = event.target.id;
+                hint = "" + this.id;
+                var thenum = hint.replace( /^\D+/g, ''); 
+                console.log(thenum);
+                   index = parseInt(thenum);
+              newStr = hint.replace(/[0-9]/g, '');
+                switch (newStr) {
+                    case "name": 
+                        var editcard = this.parentNode.parentNode;
+                        var x = editcard.querySelector('.person-info');
+                        var fname, lname, fulname, tittle;
+                        fname = alldata[index].name.first;
+                        lname = alldata[index].name.last;
+                        fulname = fname + " " + lname;
+                        tittle = "My Name";
+                        var gg = x.querySelector('#key');
+                        var textval = x.querySelector('#value');
+                        gg.innerHTML = tittle;
+                        textval.innerHTML = fulname;
+                        break;
+                    case "varter":
+                         editcard = this.parentNode.parentNode;
+                         x = editcard.querySelector('.person-info');
+                        var email;
+                        email = alldata[index].email;
+                        tittle = "My Email";
+                         gg = x.querySelector('#key');
+                         textval = x.querySelector('#value');
+                        gg.innerHTML = tittle;
+                        textval.innerHTML = email;
+                        break;
+                    case "location":
+                         editcard = this.parentNode.parentNode;
+                         x = editcard.querySelector('.person-info');
+                        var city;
+                        city = alldata[index].location.city;
+                        tittle = "City Location";
+                         gg = x.querySelector('#key');
+                        textval = x.querySelector('#value');
+                        gg.innerHTML = tittle;
+                        textval.innerHTML = city;
+                        break;
+                    case "date":
+                         editcard = this.parentNode.parentNode;
+                         x = editcard.querySelector('.person-info');
+                        var datee;
+                        datee = alldata[index].dob.date;
+                        tittle = "Date";
+                         gg = x.querySelector('#key');
+                         textval = x.querySelector('#value');
+                        gg.innerHTML = tittle;
+                        textval.innerHTML = datee;
+                        break;
+                    case "pass":
+                       editcard = this.parentNode.parentNode;
+                         x = editcard.querySelector('.person-info');
+                        var pass;
+                        pass = alldata[index].login.password;
+                        tittle = "Password";
+                         gg = x.querySelector('#key');
+                         textval = x.querySelector('#value');
+                        gg.innerHTML = tittle;
+                        textval.innerHTML = pass;
+                     
+                        break;
+    
+                }
+            });
+        }
+    });
+}
+
+function compareStrings(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
+}
+function compareDate(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    return (a < b) ? 1 : (a > b) ? -1 : 0;
+}
